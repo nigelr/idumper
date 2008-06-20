@@ -1,0 +1,18 @@
+<p>
+  <strong>User:</strong>
+  <%=h @bit.user %>
+</p>
+<p>
+  <strong>Title:</strong>
+  <%=h @bit.title %>
+</p>
+<p>
+  <strong>Content:</strong>
+  <%=h @bit.content %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_bit_path(@bit) %> |
+  <%= link_to "Destroy", @bit, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", bits_path %>
+</p>

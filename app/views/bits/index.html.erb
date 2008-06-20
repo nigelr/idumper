@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th>User</th>
+    <th>Title</th>
+    <th>Content</th>
+  </tr>
+  <% for bit in @bits %>
+    <tr>
+      <td><%=h bit.user %></td>
+      <td><%=h bit.title %></td>
+      <td><%=h bit.content %></td>
+      <td><%= link_to "Show", bit %></td>
+      <td><%= link_to "Edit", edit_bit_path(bit) %></td>
+      <td><%= link_to "Destroy", bit, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Bit", new_bit_path %></p>
