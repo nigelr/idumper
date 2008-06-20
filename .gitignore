@@ -6,3 +6,4 @@ doc/api
 doc/app
 coverage
 db/*.sqlite3
+nbproject
