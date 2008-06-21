@@ -1,9 +1,9 @@
 class BitsController < ApplicationController
   
-  before_filter :login_required
+  before_filter :login_required, :except => [:index, :show]
   
   def index
-    @bits = Bit.find(:all)
+    @bits = Bit.get_list(current_user)
   end
   
   def show

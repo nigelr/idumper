@@ -6,6 +6,7 @@ class BitsControllerTest < ActionController::TestCase
     get :index
     assert_redirected_to login_path
   end
+  
   def test_should_show_index_when_logged_in
     login_as :quentin
     get :index
