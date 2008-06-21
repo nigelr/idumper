@@ -15,6 +15,9 @@ class User < ActiveRecord::Base
   # Virtual attribute for the unencrypted password
   attr_accessor :password
 
+  has_many :followings
+  has_many :users, :through=>:followings
+  
   has_many :bits
 
   validates_presence_of     :login, :email
