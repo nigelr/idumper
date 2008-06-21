@@ -1,19 +1,21 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class BitsControllerTest < ActionController::TestCase
-  def test_should_not_show_index_when_not_logged_in
+  def test_index_should_list_last_10_bits_when_not_logged_in
     get :index
     assert_response :success
     assert_template 'index'
+    bits = assigns(:bits)
+    assert_equal bits, Bit.find(:all, :order => 'id DESC', :limit => 10)
   end
   
-  def test_should_show_index_when_logged_in
+  def test_index_should_list_all_users_bits_when_logged_in
     login_as :quentin
     get :index
+    assert_response :success
     assert_template 'index'
     bits = assigns(:bits)
-    assert_equal Bit.first.class, bits.first.class
-    assert_equal(Bit.count, bits.length)
+    assert_equal bits, users(:quentin).bits.find(:all)
   end
   
   def test_show
