@@ -1,4 +1,7 @@
 class BitsController < ApplicationController
+  
+  before_filter :login_required
+  
   def index
     @bits = Bit.find(:all)
   end
