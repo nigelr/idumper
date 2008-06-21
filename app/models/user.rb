@@ -1,5 +1,17 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
+  fields do
+    login :string
+    email :string
+    crypted_password :string, :limit => 40
+    salt :string, :limit => 40
+    created_at :datetime
+    updated_at :datetime
+    remember_token :string
+    remember_token_expires_at :datetime
+    
+  end
+  
   # Virtual attribute for the unencrypted password
   attr_accessor :password
 

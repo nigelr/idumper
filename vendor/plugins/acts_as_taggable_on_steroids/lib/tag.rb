@@ -1,4 +1,10 @@
 class Tag < ActiveRecord::Base
+  fields do
+    name :string
+    shitme :string
+  end
+  
+  
   has_many :taggings, :dependent => :destroy
   
   validates_presence_of :name
