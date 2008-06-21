@@ -1,10 +1,10 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class BitsControllerTest < ActionController::TestCase
-  include AuthenticatedTestHelper
   def test_should_not_show_index_when_not_logged_in
     get :index
-    assert_redirected_to login_path
+    assert_response :success
+    assert_template 'index'
   end
   
   def test_should_show_index_when_logged_in
