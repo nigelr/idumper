@@ -1,0 +1,20 @@
+ruby: 
+  name: ruby
+
+rails: 
+  name: rails
+
+gem:
+  name: gem
+
+plugin:
+  name: plugin
+
+netbeans:
+  name: netbeans
+
+textmate:
+  name: textmate
+
+bundle:
+  name: bundle

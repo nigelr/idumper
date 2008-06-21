@@ -1,7 +1,10 @@
-one:
-  title: MyString
-  content: MyText
-
-two:
-  title: MyString
-  content: MyText
+<%
+users = %w{ greg aaron niggle kef quentin }
+30.times do |x|
+  users << user = users.shift
+%>
+<%="bit_#{x}:" %>
+  title: Bit <%= x.to_s %>
+  content: Test data <%= x %> 
+  user: <%= user %>
+<% end %>
