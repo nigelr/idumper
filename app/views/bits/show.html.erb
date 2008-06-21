@@ -16,3 +16,28 @@
   <%= link_to "Destroy", @bit, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", bits_path %>
 </p>
+<hr>
+  
+<% followers = User.all
+qtys = [3,2,0,1,2]
+notifies = [true, false, false]
+counter = 0
+User.all.each do |user|
+  qtys << qty=qtys.shift
+  qty.times do 
+    notifies << notify = notifies.shift
+    followers << follower = followers.shift    
+    if follower==user
+      followers << follower = followers.shift    
+    end
+    counter +=1
+%>
+following_<%= counter %>:
+  user: <%= user.login %>
+  following: <%= follower.login %>
+  notify_on_add: <%= notify %>
+<%
+  end
+end
+
+%>
