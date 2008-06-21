@@ -4,6 +4,7 @@ class BitsControllerTest < ActionController::TestCase
   def test_index
     get :index
     assert_template 'index'
+    
   end
   
   def test_show
@@ -18,13 +19,17 @@ class BitsControllerTest < ActionController::TestCase
   
   def test_create_invalid
     Bit.any_instance.stubs(:valid?).returns(false)
-    post :create
+    assert_difference("Bit.count", 0) do
+      post :create
+    end
     assert_template 'new'
   end
   
   def test_create_valid
     Bit.any_instance.stubs(:valid?).returns(true)
-    post :create
+    assert_difference("Bit.count") do
+      post :create
+    end
     assert_redirected_to bit_url(assigns(:bit))
   end
   
