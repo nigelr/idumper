@@ -1,0 +1,13 @@
+one:
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  password: MyString
+  login_enabled: false
+
+two:
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  password: MyString
+  login_enabled: false

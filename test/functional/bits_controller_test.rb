@@ -2,9 +2,12 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class BitsControllerTest < ActionController::TestCase
   def test_index
+    
     get :index
     assert_template 'index'
-    
+    bits = assigns(:bits)
+    assert_equal Bit.first.class, bits.first.class
+    assert_equal(Bit.count, bits.length)
   end
   
   def test_show
@@ -19,7 +22,7 @@ class BitsControllerTest < ActionController::TestCase
   
   def test_create_invalid
     Bit.any_instance.stubs(:valid?).returns(false)
-    assert_difference("Bit.count", 0) do
+    assert_no_difference("Bit.count") do
       post :create
     end
     assert_template 'new'
