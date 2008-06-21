@@ -1,63 +1,67 @@
 require File.dirname(__FILE__) + '/../test_helper'
+require 'users_controller'
 
-#require 'test_helper'
+# Re-raise errors caught by the controller.
+class UsersController; def rescue_action(e) raise e end; end
 
-class UsersControllerTest < ActionController::TestCase
-  def test_index
-    get :index
-    assert_template 'index'
-    users = assigns(:users)
-    assert_equal User.first.class, users.first.class
-    assert_equal(User.count, users.length)
+class UsersControllerTest < Test::Unit::TestCase
+  # Be sure to include AuthenticatedTestHelper in test/test_helper.rb instead
+  # Then, you can remove it from this and the units test.
+  include AuthenticatedTestHelper
+
+  fixtures :users
+
+  def setup
+    @controller = UsersController.new
+    @request    = ActionController::TestRequest.new
+    @response   = ActionController::TestResponse.new
   end
-  
-  def test_show
-    get :show, :id => User.first
-    assert_template 'show'
-  end
-  
-  def test_new
-    get :new
-    assert_template 'new'
-  end
-  
-  def test_create_invalid
-    User.any_instance.stubs(:valid?).returns(false)
-    assert_no_difference("User.count") do
-      post :create
+
+  def test_should_allow_signup
+    assert_difference 'User.count' do
+      create_user
+      assert_response :redirect
     end
-    assert_template 'new'
   end
-  
-  def test_create_valid
-    User.any_instance.stubs(:valid?).returns(true)
-    assert_difference("User.count") do
-      post :create
+
+  def test_should_require_login_on_signup
+    assert_no_difference 'User.count' do
+      create_user(:login => nil)
+      assert assigns(:user).errors.on(:login)
+      assert_response :success
     end
-    assert_redirected_to user_url(assigns(:user))
+  end
+
+  def test_should_require_password_on_signup
+    assert_no_difference 'User.count' do
+      create_user(:password => nil)
+      assert assigns(:user).errors.on(:password)
+      assert_response :success
+    end
+  end
+
+  def test_should_require_password_confirmation_on_signup
+    assert_no_difference 'User.count' do
+      create_user(:password_confirmation => nil)
+      assert assigns(:user).errors.on(:password_confirmation)
+      assert_response :success
+    end
+  end
+
+  def test_should_require_email_on_signup
+    assert_no_difference 'User.count' do
+      create_user(:email => nil)
+      assert assigns(:user).errors.on(:email)
+      assert_response :success
+    end
   end
   
-  def test_edit
-    get :edit, :id => User.first
-    assert_template 'edit'
-  end
+
   
-  def test_update_invalid
-    User.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => User.first
-    assert_template 'edit'
-  end
-  
-  def test_update_valid
-    User.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => User.first
-    assert_redirected_to user_url(assigns(:user))
-  end
-  
-  def test_destroy
-    user = User.first
-    delete :destroy, :id => user
-    assert_redirected_to users_url
-    assert !User.exists?(user.id)
-  end
+
+  protected
+    def create_user(options = {})
+      post :create, :user => { :login => 'quire', :email => 'quire@example.com',
+        :password => 'quire', :password_confirmation => 'quire' }.merge(options)
+    end
 end
