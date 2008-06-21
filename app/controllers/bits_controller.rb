@@ -16,6 +16,7 @@ class BitsController < ApplicationController
   
   def create
     @bit = Bit.new(params[:bit])
+    @bit.user = current_user
     if @bit.save
       flash[:notice] = "Successfully created bit."
       redirect_to @bit
