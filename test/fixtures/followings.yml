@@ -1,7 +1,39 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+following_1:
+  user: nigel
+  following: paul
+  notify_on_add: true
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+following_2:
+  user: nigel
+  following: greg
+  notify_on_add: false
+
+following_3:
+  user: nigel
+  following: aaron
+  notify_on_add: false
+
+following_4:
+  user: paul
+  following: quentin
+  notify_on_add: true
+
+following_5:
+  user: paul
+  following: nigel
+  notify_on_add: false
+
+following_6:
+  user: aaron
+  following: paul
+  notify_on_add: false
+
+following_7:
+  user: quentin
+  following: greg
+  notify_on_add: true
+
+following_8:
+  user: quentin
+  following: aaron
+  notify_on_add: false
