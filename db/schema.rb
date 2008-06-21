@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080621053627) do
+ActiveRecord::Schema.define(:version => 20080621111152) do
 
   create_table "bits", :force => true do |t|
     t.string   "title"
@@ -17,6 +17,14 @@ ActiveRecord::Schema.define(:version => 20080621053627) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "followings", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "following_id"
+    t.boolean  "notify"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "taggings", :force => true do |t|
