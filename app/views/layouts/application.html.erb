@@ -12,32 +12,35 @@
   <%= javascript_include_tag :defaults, :cache => true %>
 </head>
 <body>
-  
+
 <div id="sidebar">
   <%= image_tag('bittags_logo.jpg', {:border => 0}) %>
   
   <div id="menu">
-    <%= link_to "Home", bits_path, :class => "active" %>
-    <%= link_to "Settings", edit_user_path(current_user) %>
-    <%= link_to "Find People", users_path %>
+    <%= link_to "Home", bits_path %>
+    <%= link_to "Find people", users_path %>
     <%= show_login_details %>
+    <% if logged_in? %>
+      <%= link_to("Settings", edit_user_path(current_user), :class => "active") %>
+    <% end %>
   </div>
 
-  <div>
+  <div id="info">
     <% if logged_in? %>
       <%= render :partial => 'bits/followings' %>
       <%= render :partial => 'bits/followers' %>
     <% end %>
-    <%= render :partial => 'bits/cloud' %>
   </div>
+  
+  <%= render :partial => 'bits/cloud' %>
   
   <h3>Version info:</h3>
   <p>v0.001 (June 22, 2008)</p>
 </div>
 
 <div id="content">
-  <p style="color: green"><%= flash[:notice] %></p>
-  <h1></h1>
+  <%= render :partial => 'bits/search' %>
+  <%#= flash[:notice] %>
   <%= yield  %>
 </div>
 </body>

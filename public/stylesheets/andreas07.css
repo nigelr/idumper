@@ -1,11 +1,7 @@
-/* andreas07 - an open source xhtml/css website layout by Andreas Viklund - http://andreasviklund.com . Free to use for any purpose as long as the proper credits are given for the original design work.
-
-Version: 1.1, November 28, 2005 */
-
 /**************** Page and tag styles ****************/
 
 body
-{margin:0; padding:0; color:#303030; background:#fafafa url(img/bodybg.gif) top left repeat-y; font:76% Verdana,Tahoma,sans-serif;}
+{margin:0; padding:0; color:#303030; background:#fafafa url(images/bodybg.gif) top left repeat-y; font:76% Verdana,Tahoma,sans-serif;}
 
 ul
 {list-style:circle; margin:15px 0 20px 0; font-size:0.9em;}
@@ -31,7 +27,7 @@ a img:hover
 /**************** Sidebar area styles ****************/
 
 #sidebar
-{position:absolute; top:0; left:0; width:220px; height:100%; overflow:auto; background:#e0e0e0 url(img/sidebarbg.gif) top right repeat-y; text-align:right;}
+{position:absolute; top:0; left:0; width:220px; height:100%; overflow:auto; background:#e0e0e0 url(images/sidebarbg.gif) top right repeat-y; text-align:right;}
 
 body > #sidebar
 {position:fixed;}
@@ -53,15 +49,11 @@ body > #sidebar
 
 /**************** Navigation menu styles ****************/
 
-#menu {
-	padding-top: 20px;
-}
-
 #menu a
-{display:block; width:202px; padding:5px 18px 5px 0; color:#606060; background:#e0e0e0 url(img/sidebarbg.gif) top right repeat-y; font-size:1.8em; font-weight:normal; text-decoration:none; letter-spacing:-2px;}
+{display:block; width:202px; padding:5px 18px 5px 0; color:#606060; background:#e0e0e0 url(images/sidebarbg.gif) top right repeat-y; font-size:1.8em; font-weight:normal; text-decoration:none; letter-spacing:-2px;}
 
 #menu a:hover 
-{color:#303030; background:#f0f0f0 url(img/sidebarbg.gif) top right repeat-y;}
+{color:#303030; background:#f0f0f0 url(images/sidebarbg.gif) top right repeat-y;}
 
 #menu a.active
 {padding:5px 18px 5px 0; background:#fafafa; border-top:2px solid #c0c0c0; border-bottom:2px solid #c0c0c0;}
@@ -72,7 +64,7 @@ body > #sidebar
 /**************** Content area styles ****************/
 
 #content
-{width:520px; margin:0 0 0 240px; padding:20px 0; background:#fafafa;}
+{width:520px; margin: 25px 0 0 240px; padding: 0 0 20px; background:#fafafa;}
 
 #content p
 {margin:0 0 20px 0; line-height:1.5em;}
@@ -81,7 +73,9 @@ body > #sidebar
 {margin:0; color:#d85d5d; font-size:4em; letter-spacing:-5px; text-align:center;}
 
 #content h2
-{margin:0; color:#808080; font-weight:normal; font-size:2.5em; letter-spacing:-2px; text-align:center;}
+{margin:0; color:#808080; font-weight: normal; letter-spacing:-1px; text-align:center;
+	font-size: 2em;
+}
 
 #content h3
 {clear:both; margin:30px 0 10px 0; color:#d85d5d; font-weight:normal; font-size: 2em; letter-spacing:-2px;}
@@ -130,8 +124,43 @@ pre {
   list-style: square;
 }
 
+#info {
+	background-color: #e0e0e0;
+	padding: 5px 20px 10px 5px;
+	margin-top: 10px;
+}
+
 #cloud {
 	background-color: #444;
 	padding: 5px 20px 10px 5px;
 	margin-top: 10px;
+}
+
+#search_bar {
+	float: right;
+	clear: both;
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin: 2px;
+}
+
+#search_names{
+	margin: 50px;
+}
+
+#login_form{
+	margin: 50px;
+}
+
+#signup_form{
+	margin: 50px;
+}
+
+#settings_form{
+	margin: 50px;
+}
+
+#tag_list {
+	margin: 4px;
 }
