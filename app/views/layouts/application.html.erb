@@ -18,10 +18,10 @@
   
   <div id="menu">
     <%= link_to "Home", bits_path %>
-    <%= link_to "Find people", users_path %>
+    <%= link_to "Find people", users_path %> <!-- , :class => "active" -->
     <%= show_login_details %>
     <% if logged_in? %>
-      <%= link_to("Settings", edit_user_path(current_user), :class => "active") %>
+      <%= link_to("Settings", edit_user_path(current_user)) %>
     <% end %>
   </div>
 

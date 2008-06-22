@@ -64,7 +64,7 @@ body > #sidebar
 /**************** Content area styles ****************/
 
 #content
-{width:520px; margin: 25px 0 0 240px; padding: 0 0 20px; background:#fafafa;}
+{width: auto; margin: 25px 0 0 240px; padding: 0 0 20px; background:#fafafa;}
 
 #content p
 {margin:0 0 20px 0; line-height:1.5em;}
@@ -83,9 +83,10 @@ body > #sidebar
 /* rails scaffold stuff*/
 
 pre {
-  background-color: #eee;
+  background-color: #dfdfdf;
   padding: 10px;
   font-size: 11px;
+  
 }
 
 .fieldWithErrors {
@@ -163,4 +164,34 @@ pre {
 
 #tag_list {
 	margin: 4px;
+}
+
+#following {
+	border: 1px dashed #d7d7d7;
+	background-color: #c9c9c9;
+	margin-left: 40px;
+	padding-right: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+#bit_owner {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#bit_title {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#bit_info {
+	float: left;
+	font-size: 12px;
+	margin-top: 5px;
+	padding: 2px;
+}
+
+#bit_date {
+	float: right;
 }

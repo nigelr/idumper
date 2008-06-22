@@ -1,4 +1,6 @@
-<p>Followings</p>
-<% (@user || current_user).users_being_followed.each do |following| %>
-  <div><%= link_to following.login, person_bits_bit_path(following.id) %></div>
-<% end %>
+<h3>Followings</h3>
+<div id="following">
+  <% (@user || current_user).users_being_followed.each do |following| %>
+    <div><%= link_to following.login.capitalize, person_bits_bit_path(following.id) %></div>
+  <% end %>
+</div>
