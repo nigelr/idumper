@@ -103,21 +103,19 @@ sample_data='
     @readonly = true
   end
 '
+
 items = []
 build = ""
 sample_data.split("\n").each do |line|
- f_line = line.gsub(" ", "&nbsp;")
-
-# puts "line=#{f_line}"  
- build += f_line+"\n\n"   
-# puts "build=#{build}" 
- if line.lstrip.slice(0,3) == "end"
-   items << build
-   build = ""
- end   
-end  
-
-
+  # puts "line=#{line}"  
+  munged_line = line.gsub(" ", "&nbsp;")
+  build += munged_line + "\n\n"
+  # puts "build=#{build}"
+  if line =~ /^\s\send/
+    items << build
+    build = ""
+ end
+end
 
 users = %w{ greg aaron nigel paul quentin }
 30.times do |x|
