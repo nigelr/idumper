@@ -15,11 +15,12 @@ class Bit < ActiveRecord::Base
   def self.get_list(user, current_user=nil)
     if user
       if current_user == user
+        puts "user ======= curent_user"
+        ids = current_user.users_being_followed_ids + [current_user.id]
+        self.find :all, :conditions=>{:user_id=>ids}, :order=>:created_at
         
-      ids = [current_user.id] + current_user.users_being_followed_ids
-      self.find :all, :conditions=>{:user_id=>ids}, :order=>:created_at
       else
-      user.bits.find :all
+        user.bits.find :all
       end
     else
       find(:all, :order => 'id DESC', :limit => 10)
