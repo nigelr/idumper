@@ -1,3 +1,15 @@
+<% form_tag search_bits_path, :method=>:get do%>
+  Search for Bits: <%= text_field_tag :search %>
+  <%= submit_tag "Find" %>
+<% end %>
+  <div>
+    <% unless @tags.nil?  %>
+    Tags used in below list<br>
+    <% for tag in @tags  %>
+            <%= link_to tag.name, "" %>
+      <% end %>
+    <% end %>
+  </div>
 <table>
   <tr>
     <th>
