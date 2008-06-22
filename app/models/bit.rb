@@ -25,7 +25,7 @@ class Bit < ActiveRecord::Base
       find(:all, :order => 'id DESC', :limit => 10)
     end
   end
-  
+    
   def list_formatted_content
     self.content.gsub("\n","<br>")
   end
