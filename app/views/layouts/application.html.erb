@@ -18,9 +18,11 @@
   
   <div id="menu">
     <%= link_to "Home", bits_path %>
-    <%= link_to "Settings", edit_user_path(current_user), :class => "active" %>
-    <%= link_to "Find People", users_path %>
+    <%= link_to "Find people", users_path %>
     <%= show_login_details %>
+    <% if logged_in? %>
+      <%= link_to("Settings", edit_user_path(current_user), :class => "active") %>
+    <% end %>
   </div>
 
   <div id="info">
@@ -37,7 +39,8 @@
 </div>
 
 <div id="content">
-  <%= flash[:notice] %>
+  <%= render :partial => 'bits/search' %>
+  <%#= flash[:notice] %>
   <%= yield  %>
 </div>
 </body>

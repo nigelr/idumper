@@ -1,35 +1,46 @@
 <h1><%= bits_page_title %></h1>
 
-<div id="search_bar">
-<% form_tag search_bits_path, :method=>:get do%>
-  Search for Bits: <%= text_field_tag :search %>
-  <%= submit_tag "Find" %>
-<% end %>
-</div>
 <div id="tag_list">
   <% unless @tags.nil?  %>
-  Tags used in below list<br>
-  <% for tag in @tags  %>
-          <%= link_to tag.name, "" %>
+    Tags used in below list<br>
+    <% for tag in @tags  %>
+      <%= link_to tag.name, "" %>
     <% end %>
   <% end %>
 </div>
 
 <table>
-  </tr>
+  <tr>
   <% for bit in @bits %>
     <tr>
       <td>
-        <%= bit.user.full_name+": " if current_user == @user %>
+        <%= bit.user.full_name.capitalize+"'s: " if current_user == @user %>
         <%= link_to h(bit.title), bit %>
         <br>
-        <%= bit.created_at_formatted %>          
+        
+        <span>
+          Tags :<% bit.tags.each do |tag_me| %>
+            <%= link_to tag_me.name, tagged_bit_path(tag_me.name) %>
+          <% end %>
+        </span>
+        <% # TODO Greg to fromat with CSS  %>
+        <span style="padding: 100px">
+          <%= bit.created_at_formatted %>          
+        </span>
+          
       </td>
     </tr>
     <tr>
-      <td><pre><%=  bit.list_formatted_content %></pre></td>
+      <td>
+        <pre>
+  <%=  bit.list_formatted_content %>
+        </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Bit", new_bit_path %></p>
