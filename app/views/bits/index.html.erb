@@ -13,14 +13,4 @@
   <% end %>
 </table>
 
-
-<div id="right_side">
-  <% if logged_in? %>
-    <%= render :partial => 'followings' %>
-    <%= render :partial => 'followers' %>
-  <% else %>
-    <%= render :partial => 'sign_in' %>
-  <% end %>
-</div>
-
 <p><%= link_to "New Bit", new_bit_path %></p>

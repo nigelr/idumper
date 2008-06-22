@@ -1,4 +1,4 @@
 <p>Followings</p>
 <% current_user.users_being_followed.each do |following| %>
-  <%= following.login %>
+  <div><%= following.login %></div>
 <% end %>

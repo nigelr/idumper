@@ -23,4 +23,9 @@ class Bit < ActiveRecord::Base
   def list_formatted_content
     self.content
   end
+  
+  def self.tag_cloud
+    Tag.all
+  end
+
 end

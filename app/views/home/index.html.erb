@@ -1,0 +1,11 @@
+<h1>the best place to keep your bits</h1>
+<p>login</p>
+<p>signup</p>
+<p>search bits</p>
+<h2>Tags</h2>
+
+<div id="cloud">
+  <% @tags.each do |tag| %>
+  <span style="font-size: <%= tag.taggings.count %>px"><%= tag %></span>
+  <% end %>
+</div>

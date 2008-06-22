@@ -1,5 +1,5 @@
 tagging_1:
-  tag: textmate
+  tag: rails
   taggable: bit_10
   taggable_type: Bit
   
@@ -19,7 +19,7 @@ tagging_3:
   
   
 tagging_4:
-  tag: netbeans
+  tag: rails
   taggable: bit_12
   taggable_type: Bit
   
@@ -45,7 +45,7 @@ tagging_7:
   
 
 tagging_8:
-  tag: textmate
+  tag: rails
   taggable: bit_14
   taggable_type: Bit
   
@@ -63,7 +63,7 @@ tagging_10:
   
   
 tagging_11:
-  tag: netbeans
+  tag: rails
   taggable: bit_14
   taggable_type: Bit
   
@@ -89,7 +89,7 @@ tagging_14:
   
 
 tagging_15:
-  tag: textmate
+  tag: rails
   taggable: bit_16
   taggable_type: Bit
   
@@ -109,7 +109,7 @@ tagging_17:
   
   
 tagging_18:
-  tag: netbeans
+  tag: rails
   taggable: bit_18
   taggable_type: Bit
   
@@ -135,7 +135,7 @@ tagging_21:
   
 
 tagging_22:
-  tag: textmate
+  tag: rails
   taggable: bit_20
   taggable_type: Bit
   
@@ -153,7 +153,7 @@ tagging_24:
   
   
 tagging_25:
-  tag: netbeans
+  tag: rails
   taggable: bit_20
   taggable_type: Bit
   
@@ -179,7 +179,7 @@ tagging_28:
   
 
 tagging_29:
-  tag: textmate
+  tag: rails
   taggable: bit_22
   taggable_type: Bit
   
@@ -199,7 +199,7 @@ tagging_31:
   
   
 tagging_32:
-  tag: netbeans
+  tag: rails
   taggable: bit_24
   taggable_type: Bit
   
@@ -225,7 +225,7 @@ tagging_35:
   
 
 tagging_36:
-  tag: textmate
+  tag: rails
   taggable: bit_26
   taggable_type: Bit
   
@@ -269,7 +269,7 @@ tagging_42:
   
 
 tagging_43:
-  tag: textmate
+  tag: rails
   taggable: bit_28
   taggable_type: Bit
   
@@ -315,7 +315,7 @@ tagging_49:
   
 
 tagging_50:
-  tag: textmate
+  tag: rails
   taggable: bit_7
   taggable_type: Bit
   
@@ -359,7 +359,7 @@ tagging_56:
   
 
 tagging_57:
-  tag: textmate
+  tag: rails
   taggable: bit_5
   taggable_type: Bit
   

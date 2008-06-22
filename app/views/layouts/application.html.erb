@@ -10,14 +10,26 @@
 </head>
 <body>
 
-<%= image_tag('bittags_logo.jpg', {:border => 0}) %>
+<div id="header">
+  <%= image_tag('bittags_logo.jpg', {:border => 0}) %>
+</div>
 <div id="login_details">
   <%= show_login_details %>
 </div>
 
-<p style="color: green"><%= flash[:notice] %></p>
+<div id="content">
+  <p style="color: green"><%= flash[:notice] %></p>
+  <%= yield  %>
+</div>
 
-<%= yield  %>
+<div id="right_side">
+  <% if logged_in? %>
+    <%= render :partial => 'bits/followings' %>
+    <%= render :partial => 'bits/followers' %>
+  <% else %>
+    <%= render :partial => 'bits/top_bits' %>
+  <% end %>
+</div>
 
 </body>
 </html>

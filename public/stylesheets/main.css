@@ -72,3 +72,31 @@ div.progressBar div.background {
   width: 0%;
 }
 
+/* layout here */
+#header {
+	float: left;
+	position: relative;
+	clear: both;
+}
+
+#login_details {
+	text-align: right;
+	padding: 2px;
+}
+
+#content {
+	float: left;
+	position: relative;
+	clear: both;
+}
+
+#right_side {
+	background-color: #dedede;
+	float: right;
+	position: relative;
+	padding: 5px;
+}
+
+#cloud {
+	background-color: #ebebeb;
+}
