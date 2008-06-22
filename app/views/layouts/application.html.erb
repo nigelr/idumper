@@ -14,6 +14,8 @@
   <%= image_tag('bittags_logo.jpg', {:border => 0}) %>
 </div>
 <div id="login_details">
+  <span><%= link_to "Home", bits_path %></span>
+  <span><%= link_to "Settings", edit_user_path(current_user) %></span>
   <%= show_login_details %>
 </div>
 
