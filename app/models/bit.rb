@@ -21,7 +21,7 @@ class Bit < ActiveRecord::Base
   end
   
   def list_formatted_content
-    self.content
+    self.content.gsub("\n","<br>")
   end
   
   def self.tag_cloud
