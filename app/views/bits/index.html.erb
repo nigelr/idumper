@@ -4,11 +4,11 @@
   <% unless @tags.nil?  %>
     Tags used in below list<br>
     <% for tag in @tags  %>
-      <%= link_to tag.name, "" %>
+      <%= link_to tag.name, tagged_bit_path(tag.name) %>
     <% end %>
   <% end %>
 </div>
-
+<hr>
 <table>
   <tr>
   <% for bit in @bits %>
@@ -33,6 +33,7 @@
     <tr>
       <td>
         <pre>
+          
   <%=  bit.list_formatted_content %>
         </pre>
       </td>

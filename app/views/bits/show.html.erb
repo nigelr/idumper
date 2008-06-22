@@ -4,6 +4,9 @@
 </p>
 <p>
   <strong>Content:</strong>
+<p>
+  <%= link_to "Edit", edit_bit_path(@bit) %> 
+</p>
   <pre>
     <%=  @bit.content %>
   </pre>
@@ -13,13 +16,7 @@
   <%=h @bit.tag_list %>
 </p>
 
-<p>
-  <%= link_to "Edit", edit_bit_path(@bit) %> |
-  <%= link_to "Destroy", @bit, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", bits_path %>
-</p>
-<hr>
-  
+<div style="display: none">  
 <% followers = User.all
 qtys = [3,2,0,1,2]
 notifies = [true, false, false]
@@ -177,4 +174,4 @@ users = %w{ greg aaron nigel paul quentin }
   content: '<%=item %>'
   user: <%= user %>
 <% end %>
-  
+</div>  
