@@ -1,4 +1,5 @@
 CREATE TABLE "bits" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255) DEFAULT NULL NULL, "content" text DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL, "user_id" integer);
+CREATE TABLE "followings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer DEFAULT NULL NULL, "following_id" integer DEFAULT NULL NULL, "notify_on_add" boolean DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL);
 CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL);
 CREATE TABLE "taggings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tag_id" integer DEFAULT NULL NULL, "taggable_id" integer DEFAULT NULL NULL, "taggable_type" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL);
 CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL NULL);
@@ -13,3 +14,7 @@ INSERT INTO schema_migrations (version) VALUES ('20080621025427');
 INSERT INTO schema_migrations (version) VALUES ('20080621043618');
 
 INSERT INTO schema_migrations (version) VALUES ('20080621053627');
+
+INSERT INTO schema_migrations (version) VALUES ('20080621111152');
+
+INSERT INTO schema_migrations (version) VALUES ('20080621115420');

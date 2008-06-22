@@ -1,17 +1,26 @@
 <table>
   <tr>
-    <th>Title</th>
-    <th>Content</th>
+    <th><%= logged_in? ? "My" : "All"%> Bits</th>
   </tr>
   <% for bit in @bits %>
     <tr>
-      <td><%=h bit.title %></td>
-      <td><%=h bit.content %></td>
-      <td><%= link_to "Show", bit %></td>
-      <td><%= link_to "Edit", edit_bit_path(bit) %></td>
-      <td><%= link_to "Destroy", bit, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to h(bit.title), bit %></td>
+    </tr>
+    <tr>
+      <td><pre><%= h bit.list_formatted_content %></pre></td>
+    </td>
     </tr>
   <% end %>
 </table>
+
+
+<div id="right_side">
+  <% if logged_in? %>
+    <%= render :partial => 'followings' %>
+    <%= render :partial => 'followers' %>
+  <% else %>
+    <%= render :partial => 'sign_in' %>
+  <% end %>
+</div>
 
 <p><%= link_to "New Bit", new_bit_path %></p>
