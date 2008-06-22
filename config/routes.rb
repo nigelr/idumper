@@ -3,7 +3,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :users, :member=>{:follow=>:get}
 
-  map.resources :bits, :member=>{:person_bits=>:get, :tagged => :get}
+  map.resources :bits, :member=>{:person_bits=>:get, :tagged => :get}, :collection=>{:search=>:get}
+#  map.resources :bits, :member=>{:person_bits=>:get, :tagged => :get, :search_bits=>:get}
 
   #map.tagged '/tagged/:id', :controller => 'bits', :action => 'tagged', :id => nil
 

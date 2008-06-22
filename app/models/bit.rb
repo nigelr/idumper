@@ -37,4 +37,16 @@ class Bit < ActiveRecord::Base
   def created_at_formatted
     self.created_at.to_s(:short)
   end
+  
+  def self.search value
+    self.find(:all, :conditions=>["content like :search or title like :search", {:search=>"%#{value}%"}])
+  end
+  
+  def self.get_tags bits
+    list = []
+    bits.each do |bit|
+      list << bit.tags
+    end
+    list.flatten.uniq
+  end
 end

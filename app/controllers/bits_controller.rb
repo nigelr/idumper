@@ -13,6 +13,13 @@ class BitsController < ApplicationController
     render :action=>"index"
   end
   
+  def search
+    @bits = Bit.search params[:search]
+    @tags = Bit.get_tags(@bits)
+    @user = current_user 
+    render :action=>"index"
+  end
+  
   def tagged
     tag = params[:id]
     @bits = Bit.find_tagged_with(tag)
