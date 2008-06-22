@@ -39,7 +39,8 @@ class Bit < ActiveRecord::Base
   end
   
   def self.search value
-    self.find(:all, :conditions=>["content like :search or title like :search", {:search=>"%#{value}%"}])
+    results = self.find(:all, :conditions=>["content like :search or title like :search", {:search=>"%#{value}%"}])
+    return results, get_tags(results) 
   end
   
   def self.get_tags bits
@@ -49,4 +50,5 @@ class Bit < ActiveRecord::Base
     end
     list.flatten.uniq
   end
+    
 end

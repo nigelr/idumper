@@ -14,8 +14,8 @@ class BitsController < ApplicationController
   end
   
   def search
-    @bits = Bit.search params[:search]
-    @tags = Bit.get_tags(@bits)
+    @bits, @tags = Bit.search params[:search]
+#    @tags = Bit.get_tags(@bits)
     @user = current_user 
     render :action=>"index"
   end
