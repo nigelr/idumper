@@ -84,6 +84,10 @@ div.progressBar div.background {
 	padding: 2px;
 }
 
+#page {
+	width: 100%;
+}
+
 #content {
 	float: left;
 	position: relative;
@@ -95,8 +99,10 @@ div.progressBar div.background {
 	float: right;
 	position: relative;
 	padding: 5px;
+	
 }
 
 #cloud {
-	background-color: #ebebeb;
+	background-color: #444;
+	/*color: #444;*/
 }
