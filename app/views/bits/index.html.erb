@@ -11,7 +11,12 @@
   </tr>
   <% for bit in @bits %>
     <tr>
-      <td><%= link_to h(bit.title), bit %></td>
+      <td>
+        <%= bit.user.full_name+": " if current_user == @user %>
+        <%= link_to h(bit.title), bit %>
+        <br>
+        <%= bit.created_at_formatted %>          
+      </td>
     </tr>
     <tr>
       <td><pre><%=  bit.list_formatted_content %></pre></td>

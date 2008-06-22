@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resource :session
 
-  map.resources :users
+  map.resources :users, :member=>{:follow=>:get}
 
   map.resources :bits, :member=>{:person_bits=>:get}
 

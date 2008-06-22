@@ -3,7 +3,7 @@ class BitsController < ApplicationController
   before_filter :login_required, :except => [:index, :show]
   
   def index
-    @bits = Bit.get_list(current_user)
+    @bits = Bit.get_list(current_user, current_user)
     @user = current_user
   end
   

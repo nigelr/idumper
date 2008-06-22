@@ -12,9 +12,15 @@ class Bit < ActiveRecord::Base
   
   validates_presence_of :title
   
-  def self.get_list(user)
+  def self.get_list(user, current_user=nil)
     if user
+      if current_user == user
+        
+      ids = [current_user.id] + current_user.users_being_followed_ids
+      self.find :all, :conditions=>{:user_id=>ids}, :order=>:created_at
+      else
       user.bits.find :all
+      end
     else
       find(:all, :order => 'id DESC', :limit => 10)
     end
@@ -28,4 +34,7 @@ class Bit < ActiveRecord::Base
     Tag.all
   end
 
+  def created_at_formatted
+    self.created_at.to_s(:short)
+  end
 end

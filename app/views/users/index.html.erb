@@ -1,0 +1,22 @@
+<% form_tag "", :method=>:get do %>
+  search: <%= text_field_tag :search, params[:search] %>
+
+  <%= submit_tag "Now" %>
+<% end %>
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for user in @users or [] %>
+    <tr>
+      <td>
+        <span>
+          <%= link_to user.login, person_bits_bit_path(user) %>
+          <%= link_to "Follow", follow_user_path(user) %>
+        </span>
+      </td>
+    
+    
+    </tr>
+  <% end %>
+</table>

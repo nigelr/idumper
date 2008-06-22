@@ -38,6 +38,15 @@ class User < ActiveRecord::Base
     login
     #[first, last].join(' ')
   end
+  def self.search search
+    search = search.to_s
+    if search.blank?
+      []
+    else
+      User.find(:all, :conditions=>["login like ? ", "%"+search+"%"])
+    end
+  end
+
   
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.authenticate(login, password)

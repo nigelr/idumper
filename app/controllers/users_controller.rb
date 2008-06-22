@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
   
+  def index
+    @users = User.search(params[:search])
+  end
 
   # render new.rhtml
   def new
@@ -27,4 +30,11 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
   end
+  
+  def follow
+    new_user = User.find(params[:id])
+    current_user.users_being_followed << new_user
+    redirect_to :action => "index"
+  end
+  
 end
