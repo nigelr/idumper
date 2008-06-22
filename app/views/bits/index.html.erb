@@ -18,7 +18,7 @@
         <%= link_to h(bit.title), bit %>
         <br>
         
-        <span>
+        <span class="bit_info">
           Tags :<% bit.tags.each do |tag_me| %>
             <%= link_to tag_me.name, tagged_bit_path(tag_me.name) %>
           <% end %>

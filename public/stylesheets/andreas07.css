@@ -164,3 +164,16 @@ pre {
 #tag_list {
 	margin: 4px;
 }
+
+#following {
+	border: 1px dashed #d7d7d7;
+	background-color: #c9c9c9;
+	margin-left: 40px;
+	padding-right: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.bit_info {
+	margin-left: 150px;
+}
