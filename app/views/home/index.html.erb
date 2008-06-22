@@ -6,6 +6,8 @@
 
 <div id="cloud">
   <% @tags.each do |tag| %>
-  <span style="font-size: <%= tag.taggings.count %>px"><%= tag %></span>
+  <span style="font-size: <%= tag.taggings.count %>px">
+    <%= link_to tag, tagged_path( tag.name ) %>
+  </span>
   <% end %>
 </div>

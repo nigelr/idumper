@@ -6,6 +6,10 @@ class BitsController < ApplicationController
     @bits = Bit.get_list(current_user)
   end
   
+  def tagged
+    @bits = Bit.find_tagged_with(params[:id])
+  end
+  
   def show
     @bit = Bit.find(params[:id])
   end
