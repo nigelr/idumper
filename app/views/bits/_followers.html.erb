@@ -1,4 +1,8 @@
 <p>followers</p>
-<% current_user.followers.each do |follower| %>
-  <div><%= follower.login %></div>
-<% end %>
+
+<% if true
+  current_user.followers.each do |follower| %>
+  <div><%= link_to follower.login, person_bits_bit_path(follower.id) %></div>
+<%
+end
+  end %>

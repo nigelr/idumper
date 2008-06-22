@@ -16,8 +16,9 @@ class User < ActiveRecord::Base
   attr_accessor :password
 
   has_many :followings
+  has_many :followers_1, :class_name=>"Following", :foreign_key=>"following_id"
   has_many :users_being_followed, :through=>:followings, :source=>"following"
-  has_many :followers, :through => :followings, :source => "user"
+  has_many :followers, :through => :followers_1, :source=>"user"
   has_many :bits
 
   validates_presence_of     :login, :email
