@@ -53,10 +53,6 @@ body > #sidebar
 
 /**************** Navigation menu styles ****************/
 
-#menu {
-	padding-top: 20px;
-}
-
 #menu a
 {display:block; width:202px; padding:5px 18px 5px 0; color:#606060; background:#e0e0e0 url(img/sidebarbg.gif) top right repeat-y; font-size:1.8em; font-weight:normal; text-decoration:none; letter-spacing:-2px;}
 
@@ -72,7 +68,7 @@ body > #sidebar
 /**************** Content area styles ****************/
 
 #content
-{width:520px; margin:0 0 0 240px; padding:20px 0; background:#fafafa;}
+{width:520px; margin:0 0 0 240px; padding: 0 0 20px; background:#fafafa;}
 
 #content p
 {margin:0 0 20px 0; line-height:1.5em;}
@@ -81,7 +77,9 @@ body > #sidebar
 {margin:0; color:#d85d5d; font-size:4em; letter-spacing:-5px; text-align:center;}
 
 #content h2
-{margin:0; color:#808080; font-weight:normal; font-size:2.5em; letter-spacing:-2px; text-align:center;}
+{margin:0; color:#808080; font-weight: normal; letter-spacing:-1px; text-align:center;
+	font-size: 2em;
+}
 
 #content h3
 {clear:both; margin:30px 0 10px 0; color:#d85d5d; font-weight:normal; font-size: 2em; letter-spacing:-2px;}
@@ -130,8 +128,22 @@ pre {
   list-style: square;
 }
 
+#info {
+	background-color: #e0e0e0;
+	padding: 5px 20px 10px 5px;
+	margin-top: 10px;
+}
+
 #cloud {
 	background-color: #444;
 	padding: 5px 20px 10px 5px;
 	margin-top: 10px;
+}
+
+#tag_list {
+
+}
+
+#search_bar {
+	
 }
