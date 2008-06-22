@@ -3,9 +3,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :users
 
-  map.resources :bits, :member=>{:person_bits=>:get}
+  map.resources :bits, :member=>{:person_bits=>:get, :tagged => :get}
 
-  map.tagged '/tagged/:id', :controller => 'bits', :action => 'tagged', :id => nil
+  #map.tagged '/tagged/:id', :controller => 'bits', :action => 'tagged', :id => nil
 
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login '/login', :controller => 'sessions', :action => 'new'

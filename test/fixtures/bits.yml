@@ -108,9 +108,9 @@ build = ""
 sample_data.split("\n").each do |line|
  f_line = line.gsub(" ", "&nbsp;")
 
-puts "line=#{f_line}"  
+# puts "line=#{f_line}"  
  build += f_line+"\n\n"   
-puts "build=#{build}" 
+# puts "build=#{build}" 
  if line.lstrip.slice(0,3) == "end"
    items << build
    build = ""

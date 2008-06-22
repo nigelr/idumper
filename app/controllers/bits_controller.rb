@@ -1,6 +1,6 @@
 class BitsController < ApplicationController
   
-  before_filter :login_required, :except => [:index, :show]
+  before_filter :login_required, :except => [:index, :show, :tagged]
   
   def index
     @bits = Bit.get_list(current_user)
@@ -14,7 +14,11 @@ class BitsController < ApplicationController
   end
   
   def tagged
-    @bits = Bit.find_tagged_with(params[:id])
+    tag = params[:id]
+    @bits = Bit.find_tagged_with(tag)
+    @user = current_user
+    @page_title = 'Bits tagged with ' + tag
+    render :action=>"index"
   end
   
   def show
