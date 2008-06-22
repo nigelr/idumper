@@ -1,10 +1,131 @@
 <%
+sample_data='
+  def type_cast_attribute_value(multiparameter_name, value)
+    multiparameter_name =~ /\([0-9]*([a-z])\)/ ? value.send("to_" + $1) : value
+  end
+
+  def find_parameter_position(multiparameter_name)
+    multiparameter_name.scan(/\(([0-9]*).*\)/).first.first
+  end
+
+  # Returns a comma-separated pair list, like "key1 = val1, key2 = val2".
+  def comma_pair_list(hash)
+    hash.inject([]) { |list, pair| list << "#{pair.first} = #{pair.last}" }.join(", ")
+  end
+
+  def quoted_column_names(attributes = attributes_with_quotes)
+    connection = self.class.connection
+    attributes.keys.collect do |column_name|
+      connection.quote_column_name(column_name)
+    end
+  end
+
+  def self.quoted_table_name
+    self.connection.quote_table_name(self.table_name)
+  end
+
+  def quote_columns(quoter, hash)
+    hash.inject({}) do |quoted, (name, value)|
+      quoted[quoter.quote_column_name(name)] = value
+      quoted
+    end
+  end
+
+  def quoted_comma_pair_list(quoter, hash)
+    comma_pair_list(quote_columns(quoter, hash))
+  end
+
+  def object_from_yaml(string)
+    return string unless string.is_a?(String)
+    YAML::load(string) rescue string
+  end
+
+  def clone_attributes(reader_method = :read_attribute, attributes = {})
+    self.attribute_names.inject(attributes) do |attrs, name|
+      attrs[name] = clone_attribute_value(reader_method, name)
+      attrs
+    end
+  end
+
+  def clone_attribute_value(reader_method, attribute_name)
+    value = send(reader_method, attribute_name)
+    value.duplicable? ? value.clone : value
+  rescue TypeError, NoMethodError
+    value
+  end
+
+  def attribute_names
+    @attributes.keys.sort
+  end
+
+  # Returns the column object for the named attribute.
+  def column_for_attribute(name)
+    self.class.columns_hash[name.to_s]
+  end
+
+  # Returns true if the +comparison_object+ is the same object, or is of the same type and has the same id.
+  def ==(comparison_object)
+    comparison_object.equal?(self) ||
+      (comparison_object.instance_of?(self.class) &&
+        comparison_object.id == id &&
+        !comparison_object.new_record?)
+  end
+
+  # Delegates to ==
+  def eql?(comparison_object)
+    self == (comparison_object)
+  end
+
+  # Delegates to id in order to allow two records of the same type and id to work with something like:
+  #   [ Person.find(1), Person.find(2), Person.find(3) ] & [ Person.find(1), Person.find(4) ] # => [ Person.find(1) ]
+  def hash
+    id.hash
+  end
+
+  # Freeze the attributes hash such that associations are still accessible, even on destroyed records.
+  def freeze
+    @attributes.freeze; self
+  end
+
+  # Returns +true+ if the attributes hash has been frozen.
+  def frozen?
+    @attributes.frozen?
+  end
+
+  # Returns +true+ if the record is read only. Records loaded through joins with piggy-back
+  # attributes will be marked as read only since they cannot be saved.
+  def readonly?
+    defined?(@readonly) && @readonly == true
+  end
+
+  # Marks this record as read only.
+  def readonly!
+    @readonly = true
+  end
+'
+items = []
+build = ""
+sample_data.split("\n").each do |line|
+ f_line = line.gsub(" ", "&nbsp;")
+
+puts "line=#{f_line}"  
+ build += f_line+"\n\n"   
+puts "build=#{build}" 
+ if line.lstrip.slice(0,3) == "end"
+   items << build
+   build = ""
+ end   
+end  
+
+
+
 users = %w{ greg aaron nigel paul quentin }
 30.times do |x|
   users << user = users.shift
+  items << item = items.shift
 %>
 <%="bit_#{x}:" %>
   title: Bit <%= x.to_s %>
-  content: Test data <%= x %> 
+  content: '<%=item %>'
   user: <%= user %>
 <% end %>
