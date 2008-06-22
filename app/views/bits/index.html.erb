@@ -1,6 +1,13 @@
 <table>
   <tr>
-    <th><%= logged_in? ? "My" : "All"%> Bits</th>
+    <th>
+      <% if logged_in? %>
+        <%= current_user == @user ? "My" : @user.full_name %>
+      <% else %>
+        All
+      <% end %>
+      Bits
+    </th>
   </tr>
   <% for bit in @bits %>
     <tr>

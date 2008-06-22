@@ -1,4 +1,4 @@
 <p>Followings</p>
-<% current_user.users_being_followed.each do |following| %>
-  <div><%= following.login %></div>
+<% @user.users_being_followed.each do |following| %>
+  <div><%= link_to following.login, person_bits_bit_path(following.id) %></div>
 <% end %>

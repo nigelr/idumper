@@ -4,6 +4,13 @@ class BitsController < ApplicationController
   
   def index
     @bits = Bit.get_list(current_user)
+    @user = current_user
+  end
+  
+  def person_bits
+    @user = User.find(params[:id])
+    @bits = Bit.get_list(@user)
+    render :action=>"index"
   end
   
   def tagged
