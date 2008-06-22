@@ -1,22 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
-require 'users_controller'
 
-# Re-raise errors caught by the controller.
-class UsersController; def rescue_action(e) raise e end; end
-
-class UsersControllerTest < Test::Unit::TestCase
-  # Be sure to include AuthenticatedTestHelper in test/test_helper.rb instead
-  # Then, you can remove it from this and the units test.
-  include AuthenticatedTestHelper
-
-  fixtures :users
-
-  def setup
-    @controller = UsersController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
-  end
-
+class UsersControllerTest < ActionController::TestCase
   def test_should_allow_signup
     assert_difference 'User.count' do
       create_user
@@ -55,9 +39,6 @@ class UsersControllerTest < Test::Unit::TestCase
       assert_response :success
     end
   end
-  
-
-  
 
   protected
     def create_user(options = {})

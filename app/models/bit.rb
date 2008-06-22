@@ -14,11 +14,9 @@ class Bit < ActiveRecord::Base
   
   def self.get_list(user)
     if user
-      r=user.bits.find :all
-    elsif
-      r=self.find(:all, :order => ' id DESC', :limit => 10)
+      user.bits.find :all
+    else
+      find(:all, :order => 'id DESC', :limit => 10)
     end
-    return r
   end
-  
 end
