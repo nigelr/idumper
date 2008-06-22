@@ -15,7 +15,10 @@
 
 <div id="sidebar">
   <%= image_tag('bittags_logo.jpg', {:border => 0}) %>
-  
+  <% if logged_in? %>
+    <div id="mini_login_name">Logged in: <%= current_user.login.capitalize %></div>
+  <% end %>  
+  <br />
   <div id="menu">
     <%= link_to "Home", bits_path %>
     <%= link_to "Find people", users_path %> <!-- , :class => "active" -->

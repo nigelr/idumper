@@ -83,10 +83,9 @@ body > #sidebar
 /* rails scaffold stuff*/
 
 pre {
-  background-color: #dfdfdf;
+  background-color: #d8d8d8;
   padding: 10px;
   font-size: 11px;
-  
 }
 
 .fieldWithErrors {
@@ -194,4 +193,9 @@ pre {
 
 #bit_date {
 	float: right;
+}
+
+#mini_login_name {
+	float: left;
+	margin-left: 4px;
 }
