@@ -14,20 +14,14 @@
   <% for bit in @bits %>
     <tr>
       <td>
-        <%= bit.user.full_name.capitalize+"'s: " if current_user == @user %>
-        <%= link_to h(bit.title), bit %>
-        <br>
-        
-        <span class="bit_info">
+        <span id="bit_owner"><%= bit.user.full_name.capitalize+"'s: " if current_user == @user %></span>
+        <span id="bit_title"><%= link_to h(bit.title), bit %></span>
+        <span id="bit_info">
           Tags :<% bit.tags.each do |tag_me| %>
             <%= link_to tag_me.name, tagged_bit_path(tag_me.name) %>
           <% end %>
         </span>
-        <% # TODO Greg to fromat with CSS  %>
-        <span style="padding: 100px">
-          <%= bit.created_at_formatted %>          
-        </span>
-          
+        <span id="bit_date"><%= bit.created_at_formatted %></span>  
       </td>
     </tr>
     <tr>
