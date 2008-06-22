@@ -1,4 +1,10 @@
-<h3>Following</h3>
+<h3>
+  <% if @user == @current_user %>
+    Following
+  <% else %>
+      <%= @user.full_name.capitalize %> is following
+  <% end %>
+</h3>
 <div id="following">
   <% (@user || current_user).users_being_followed.each do |following| %>
     <div><%= link_to following.login.capitalize, person_bits_bit_path(following.id) %></div>
