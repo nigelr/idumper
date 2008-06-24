@@ -2,7 +2,7 @@
   <% if @user == @current_user %>
     Following
   <% else %>
-      <%= @user.full_name.capitalize %> is following
+      <%= (@user || current_user).full_name.capitalize %> is following
   <% end %>
 </h3>
 <div id="following">
