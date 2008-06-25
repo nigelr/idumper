@@ -1,7 +1,9 @@
 /**************** Page and tag styles ****************/
 
 body
-{margin:0; padding:0; color:#303030; background:#fafafa url(/images/bodybg.gif) top left repeat-y; font:76% Verdana,Tahoma,sans-serif;}
+{margin:0; padding:0; color:#303030; background:#fafafa; font:76% Verdana,Tahoma,sans-serif;}
+
+/*background:#fafafa url(/images/bodybg.gif) top left repeat-y;*/
 
 ul
 {list-style:circle; margin:15px 0 20px 0; font-size:0.9em;}
