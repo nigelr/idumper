@@ -1,4 +1,10 @@
-<h3>Followers</h3>
+<h3>
+  <% if @user == @current_user %>
+    Followers
+  <% else %>
+      <%= (@user || current_user).full_name.capitalize %> followers
+  <% end %>
+</h3>
 <div id="following">
   <% if true
     current_user.followers.each do |follower| %>
