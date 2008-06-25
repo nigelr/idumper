@@ -1,6 +1,6 @@
 <div id="search_bar">
 <% form_tag search_bits_path, :method=>:get do%>
-  Search for Bits: <%= text_field_tag :search %>
+  Search for Bits: <%= text_field_tag :search, params[:search] %>
   <%= submit_tag "Find" %>
 <% end %>
 </div>
