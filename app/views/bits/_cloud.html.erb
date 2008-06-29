@@ -1,7 +1,5 @@
-<div id="cloud">
-  <% @tags.each do |tag| %>
-  <span style="font-size: <%= tag.taggings.count %>px">
-    <%= link_to tag, tagged_bit_path( tag.name ) %>
-  </span>
-  <% end %>
+<div id="cloud">  
+  <% tag_cloud @tags, %w(nube1 nube2 nube3 nube4 nube5) do |name, css_class| %>
+    <%= link_to name, tagged_bit_path( name ), :class => css_class %>
+  <% end %>  
 </div>

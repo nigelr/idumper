@@ -1,6 +1,7 @@
 class BitsController < ApplicationController
   
   before_filter :login_required, :except => [:index, :show, :tagged]
+  before_filter :get_tag_cloud, :except => [:create, :update, :destroy] # TODO any other methods that don't require tag cloud?    
   
   def index
     @bits = Bit.get_list(current_user, current_user)
@@ -67,4 +68,11 @@ class BitsController < ApplicationController
     flash[:notice] = "Successfully destroyed bit."
     redirect_to bits_url
   end
+  
+  private
+    def get_tag_cloud
+      # gets the top 100 tags, change the limit to fine tune
+      @tags = Bit.tags(:limit => 100, :order => "name desc")
+    end
+    
 end
