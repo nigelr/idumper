@@ -72,7 +72,10 @@ class BitsController < ApplicationController
   private
     def get_tag_cloud
       # gets the top 100 tags, change the limit to fine tune
-      @tags = Bit.tags(:limit => 100, :order => "name desc")
+      # @tags = Bit.tags(:limit => 100, :order => "name desc")
+      @tags = Tag.tags(:order => "count DESC, name",
+        :limit => 100).sort_by { |tag| tag.name.downcase }
+      
     end
     
 end
